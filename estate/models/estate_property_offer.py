@@ -37,8 +37,11 @@ class Offer(models.Model):
             offer.validity = (offer.date_deadline - offer.create_date.date()).days
 
     def action_accept_offer(self):
+        self.write({
+            "status": "accepted"
+        })
         for offer in self:
-            offer.status = 'accepted'
+            offer.property_id.state = 'offer_accepted'
             offer.property_id.buyer_id = offer.partner_id
             offer.property_id.selling_price = offer.price
         return True
