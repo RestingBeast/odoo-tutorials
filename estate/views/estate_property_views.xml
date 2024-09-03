@@ -27,6 +27,10 @@
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <form string="Estate Property">
+                <header>
+                    <button name="action_sold_property" type="object" string="Sold"/>
+                    <button name="action_cancel_property" type="object" string="Cancel"/>
+                </header>
                 <sheet>
                     <group>
                         <h1><field name="name"/></h1>
@@ -34,39 +38,28 @@
                     </group>
                     <group> 
                         <group>
+                            <field name="state" string="Status"/>
                             <field name="type_id" string="Property Type"/>
                             <field name="postcode"/>
                             <field name="date_availability"/>
                         </group>
                         <group>
                             <field name="expected_price"/>
+                            <field name="best_price" string="Best Offer"/>
                             <field name="selling_price"/>
                         </group>
                         <notebook>
                             <page string="Description">
                                 <group>
                                     <field name="description"/>
-                                </group>
-                                <group>
                                     <field name="bedrooms"/>
-                                </group>
-                                <group>
                                     <field name="living_area" string="Living Area (sqm)"/>
-                                </group>
-                                <group>
                                     <field name="facades"/>
-                                </group>
-                                <group>
                                     <field name="garage"/>
-                                </group>
-                                <group>
                                     <field name="garden"/>
-                                </group>
-                                <group>
                                     <field name="garden_area" string="Garden Area(sqm)"/>
-                                </group>
-                                <group>
                                     <field name="garden_orientation"/>
+                                    <field name="total_area" string="Total Area (sqm)"/>
                                 </group>
                             </page>
                             <page string="Offers">
@@ -75,8 +68,6 @@
                             <page string="Other Info">
                                 <group>
                                     <field name="user_id" string="Salesman"/>
-                                </group>
-                                <group>
                                     <field name="buyer_id" string="Buyer"/>
                                 </group>
                             </page>
